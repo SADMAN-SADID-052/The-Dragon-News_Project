@@ -1,6 +1,9 @@
 import React from 'react';
 import Header from '../Components/Header';
 import LatestNews from '../Components/LatestNews';
+import NavBar from '../Components/NavBar';
+import LeftSide from '../Components/LayOut_Conponent/LeftSide';
+import RightSide from '../Components/LayOut_Conponent/RightSide';
 
 const HomeLayout = () => {
     return (
@@ -14,9 +17,30 @@ const HomeLayout = () => {
                 <LatestNews></LatestNews>
 
             </section>
+
+           
            </header>
-           <nav></nav>
-           <main></main>
+           <nav className='w-11/12 mx-auto py-2'>
+           
+           <NavBar></NavBar>
+
+           </nav>
+           <main className='w-11/12 mx-auto pt-5 grid md:grid-cols-12 gap-3'>
+           
+           <aside className='left col-span-3'>
+              
+           <LeftSide></LeftSide>
+
+           </aside>
+
+
+           <section className='col-span-6'>Main Content</section>
+           <aside className='col-span-3'>
+
+            <RightSide></RightSide>
+           </aside>
+           
+           </main>
         </div>
     );
 };
