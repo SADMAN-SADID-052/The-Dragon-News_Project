@@ -19,13 +19,14 @@ const LeftSide = () => {
      <div className='flex flex-col gap-2'>
         {
 
-            categories.map(category => <NavLink
+            categories.map((category) => (
+            <NavLink
             
             to={`/category/${category.category_id}`}
             className='btn bg-base-100 ' key={category.category_id}>
                 {category.category_name}
             
-            </NavLink>)
+            </NavLink>))
         }
      </div>
             
