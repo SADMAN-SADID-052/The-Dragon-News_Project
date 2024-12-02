@@ -10,6 +10,10 @@ import {
 } from "react-router-dom";
 import HomeLayout from './Layouts/HomeLayout';
 import MainPart from './Components/LayOut_Conponent/MainPart';
+import AuthLayout from './Layouts/AuthLayout';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import AuthProvider from './Provider/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +41,19 @@ const router = createBrowserRouter([
 
   {
     path:"auth",
-    element:<div>Login</div>
+    element:<AuthLayout></AuthLayout>,
+    children:[
+
+      {
+        path:"/auth/login",
+        element: <Login></Login>,
+      },
+      {
+        path:"/auth/register",
+        element: <Register></Register>,
+      }
+      
+    ]
   },
 
   {
@@ -49,6 +65,13 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+
+    <AuthProvider>    
+      
+       <RouterProvider router={router} />
+    
+    
+    </AuthProvider>
+
   </StrictMode>,
 )
